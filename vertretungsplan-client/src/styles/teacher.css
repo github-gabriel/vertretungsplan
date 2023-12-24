@@ -1,0 +1,62 @@
+/* Html, Body */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "TimesNewerRoman Bold Roman", sans-serif;
+    user-select: none;
+    background: var(--bg-200);
+    margin-top: 14vh;
+}
+
+/* Label */
+
+label {
+    font-size: clamp(1rem, 3.5vw, 2rem) !important;
+    display: inline-block !important;
+    text-align: right !important;
+}
+
+/* Form */
+
+form {
+    padding-bottom: 15px;
+}
+
+/* Different Container Classes */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0 0 20px var(--shadow);
+    border-radius: 10px;
+    overflow-x: auto;
+    text-align: center;
+    background-color: var(--bg-200);
+    margin: var(--margin-between-elements) var(--margin-sides) var(--margin-between-elements) var(--margin-sides);
+}
+
+/* Day Info */
+
+#day {
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+    color: black;
+    padding: 15px;
+}
+
+/* Attendance Dropdown */
+
+#dropdown {
+    font-size: 1.2vmax;
+    max-width: 180px;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        margin-top: 0 !important;
+    }
+}

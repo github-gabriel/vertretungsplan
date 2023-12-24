@@ -1,0 +1,807 @@
+{
+	"info": {
+		"_postman_id": "e22500f1-1ba4-412a-8dca-ae96bd218722",
+		"name": "Vertretungsplan",
+		"description": "This collection provides all endpoints for the Vertretungsplan application, which is a substitution planer app that aims to eliminate long delays because of the manual creation of the substitution plan entries, by using an algorithm, that automatically creates entries.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20209857"
+	},
+	"item": [
+		{
+			"name": "Teacher 👨‍🏫",
+			"item": [
+				{
+					"name": "Attendance ✅❌",
+					"item": [
+						{
+							"name": "Authenticate Teacher",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful request\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"JWT Cookie present\", function () {\r",
+											"    pm.expect(pm.cookies.has('jwt')).to.be.true;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"till.redl@gmail.com\",\r\n    \"password\" : \"vertretungsplan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/{{AUTHENTICATION_PATH}}/authenticate",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"{{AUTHENTICATION_PATH}}",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set Attendance",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful request\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"attendance\" : \"ANWESEND\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/teacher/attendance-status",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"{{RESOURCES_PATH}}",
+										"teacher",
+										"attendance-status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Attendance",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Successful request', function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Retrieved attendance status\", function () {\r",
+											"    const responseJson = pm.response.json();\r",
+											"    pm.expect(responseJson.attendance).to.be.oneOf([\"ANWESEND\", \"ABWESEND\"]);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/teacher/attendance-status",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"{{RESOURCES_PATH}}",
+										"teacher",
+										"attendance-status"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "In this sub folder of Teacher you can find endpoints for managing the attendance status of teachers. It contains features to check and update attendance status, making it easy to manage teachers' attendance information smoothly."
+				},
+				{
+					"name": "Get Substitution Plan Entries for Teacher",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/teacher/substitution-plan",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"teacher",
+								"substitution-plan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Timetable Entries for Teacher",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/teacher/timetable-entries",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"teacher",
+								"timetable-entries"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This folder offers endpoints for teachers to view their substitution plans and timetable entries, as well as manage their attendance status."
+		},
+		{
+			"name": "JWT Endpoints 🔒",
+			"item": [
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"No JWT Cookie present\", function () {\r",
+									"    pm.expect(pm.cookies.has('jwt')).to.be.false;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{AUTHENTICATION_PATH}}/logout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{AUTHENTICATION_PATH}}",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JWT Cookie present\", function () {\r",
+									"    pm.expect(pm.cookies.has('jwt')).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"administrator@gmail.com\",\r\n    \"password\" : \"vertretungsplan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/{{AUTHENTICATION_PATH}}/authenticate",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{AUTHENTICATION_PATH}}",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This folder includes endpoints for user authentication and login using JSON Web Tokens (JWT). Use this collection to test and verify the functionality of the JWT-based authentication system used in the application."
+		},
+		{
+			"name": "Administration 🏢",
+			"item": [
+				{
+					"name": "Substitution Plan 🔄",
+					"item": [
+						{
+							"name": "Create Substitution Plan Entry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful request\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"ID in response should be number\", function () {\r",
+											"  const responseJson = pm.response.json();\r",
+											"  pm.expect(typeof(responseJson.id)).to.eql(\"number\")\r",
+											"  pm.variables.set('createdSubstitutionPlanId', responseJson.id);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"courseId\": 1,\r\n    \"hour\": 1,\r\n    \"art\": \"ENTFALL\",\r\n    \"typ\": \"MANUELL\",\r\n    \"teacherId\": 1,\r\n    \"substituteId\": null,\r\n    \"subjectId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/substitution-plan",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"{{RESOURCES_PATH}}",
+										"administration",
+										"substitution-plan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Substitution Plan Entry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful request\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/substitution-plan/{{createdSubstitutionPlanId}}",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"{{RESOURCES_PATH}}",
+										"administration",
+										"substitution-plan",
+										"{{createdSubstitutionPlanId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "A sub folder of the Administration folder, containing essential endpoints for maintaining and updating the substitution plan.\n\n## ⚠️ Important ⚠️:\n\nThe DELETE request uses a dynamically created local variable `createdSubstitutionPlanId`, created in the POST request, so this request can be tested, since the IDs can vary, depending on the setup of the application. To be able to test the DELETE request run the whole collection (or at least the POST request before the DELETE request)!"
+				},
+				{
+					"name": "Get All Teachers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/teachers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"administration",
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Students",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/students",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"administration",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Administrators",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/administrators",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"administration",
+								"administrators"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/courses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"administration",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Timetable Entries for Course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/timetable-entries/KL",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"administration",
+								"timetable-entries",
+								"KL"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entities with According IDs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains maps for courses, teachers, and subjects\", function () {\r",
+									"    var responseJSON = pm.response.json();\r",
+									"    pm.expect(responseJSON).to.have.property('courses').that.is.an('object');\r",
+									"    pm.expect(responseJSON).to.have.property('teachers').that.is.an('object');\r",
+									"    pm.expect(responseJSON).to.have.property('subjects').that.is.an('object');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/administration/entities",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"administration",
+								"entities"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This folder includes a set of administration endpoints designed for data retrieval. These endpoints facilitate the retrieval of essential administrative data."
+		},
+		{
+			"name": "Substitution Plan 🔄",
+			"item": [
+				{
+					"name": "Get All Substitution Plan Entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/substitution-plan",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"substitution-plan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Substitution Plan Entries By Typ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains a list\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each object in the response contains the 'typ' from the URL\", function () {\r",
+									"    var typFromURL = \"AUTO\";\r",
+									"    pm.response.json().forEach(function(obj) {\r",
+									"        pm.expect(obj.typ).to.equal(typFromURL);\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/substitution-plan/AUTO",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"substitution-plan",
+								"AUTO"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This folder is made for easily retrieving substitution plan entries, a core function of the application."
+		},
+		{
+			"name": "Other ⚙️",
+			"item": [
+				{
+					"name": "Current Day",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is an object with currentDay and currentDateTime properties\", function () {\r",
+									"    var responseJSON = pm.response.json();\r",
+									"    pm.expect(responseJSON).to.be.an('object').that.has.property('currentDay');\r",
+									"    pm.expect(responseJSON).to.be.an('object').that.has.property('currentDateTime');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/current-day",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"current-day"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current Role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains a valid role\", function () {\r",
+									"    var responseJSON = pm.response.json();\r",
+									"    pm.expect(responseJSON).to.be.an('object');\r",
+									"    pm.expect(responseJSON).to.have.property('role').that.is.a('string').and.not.empty;\r",
+									"    pm.expect(responseJSON.role).to.be.oneOf([\"STUDENT\", \"TEACHER\", \"ADMINISTRATOR\"])\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/{{RESOURCES_PATH}}/user/role",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"{{RESOURCES_PATH}}",
+								"user",
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This folder includes endpoints for retrieving information related to the current day and user role."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

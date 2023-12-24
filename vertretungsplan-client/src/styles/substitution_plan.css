@@ -1,0 +1,44 @@
+/* Body */
+
+body {
+    font-family: "Swansea Bold", sans-serif;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-200);
+}
+
+h1 {
+    font-size: clamp(1rem, 1.8vw, 1.4rem) !important;
+    font-family: "Poppins Regular", sans-serif !important;
+    font-weight: 500;
+}
+
+/* Anchor */
+
+a {
+    text-decoration: none;
+    color: var(--primary-100);
+}
+
+.table-container-wrapper {
+    position: relative;
+    top: 6vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 20px 15% 20px 15%;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--bg-200);
+    overflow: auto;
+    max-height: 700px;
+}
+
+@media screen and (max-width: 1000px) {
+    .table-container-wrapper {
+        margin: 20px 0 20px 0 !important;
+    }
+}

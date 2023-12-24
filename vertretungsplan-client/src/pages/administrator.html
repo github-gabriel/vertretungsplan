@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../styles/administrator.css" rel="stylesheet" type="text/css">
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <title>Verwaltung</title>
+</head>
+<body>
+<nav>
+    <div class="logo-container">
+        <label class="logo"><a href="substitution_plan.html">Vertretungsplan</a></label>
+    </div>
+    <ul>
+        <li><img id="logout-img" src="../assets/icons/logout.svg"></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="grid-container">
+        <div class="substitution-plan-container">
+            <h1>
+                <mark>Vertretungsplan Eintrag erstellen</mark>
+            </h1>
+            <br>
+            <div>
+                <div class="form-container">
+                    <label for="class-dropdown">Klasse:</label>
+                    <select id="class-dropdown"></select>
+
+                    <label for="hour-dropdown">Stunde:</label>
+                    <select id="hour-dropdown">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+
+                    <label for="art-dropdown">Art:</label>
+                    <select id="art-dropdown">
+                        <option>ENTFALL</option>
+                        <option>VERTRETUNG</option>
+                    </select>
+
+                    <label for="teacher-dropdown">Lehrer:</label>
+                    <select id="teacher-dropdown"></select>
+
+                    <label for="substitution-dropdown">Vertreter:</label>
+                    <select id="substitution-dropdown"></select>
+
+                    <label for="subject-dropdown">Fach:</label>
+                    <select id="subject-dropdown"></select>
+
+                    <button id="submit">Submit</button>
+                </div>
+                <div class="table-wrapper">
+                    <table class="substitution-plan">
+                        <tr id="substitution-plan-head">
+                        </tr>
+                        <tbody id="substitution-plan-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/src/js/administrator.js" type="module"></script>
+</body>
+</html>

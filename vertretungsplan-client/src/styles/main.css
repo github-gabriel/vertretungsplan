@@ -1,0 +1,329 @@
+:root {
+    --primary-100: #0b5b9d;
+    --accent-100: #138ccd;
+    --accent-200: #71aad6;
+    --bg-100: #b1d7ec;
+    --bg-200: #dae6f8;
+
+    --danger: #FF0000;
+    --shadow: #484848;
+
+    --margin-between-elements: 30px;
+    --margin-sides: 18%;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url('../assets/fonts/Poppins-Bold.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins Regular';
+    src: url('../assets/fonts/Poppins-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Swansea Regular';
+    src: url('../assets/fonts/Swansea-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Swansea Bold';
+    src: url('../assets/fonts/Swansea-Bold.ttf');
+    font-display: swap;
+}
+
+/* Headings */
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Label */
+
+label {
+    font-family: "Poppins Bold", sans-serif;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Select */
+
+select {
+    font-family: "Poppins Bold", sans-serif;
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-100);
+    color: white;
+    cursor: pointer;
+    width: auto;
+}
+
+select option {
+    color: white;
+    font-size: 16px;
+}
+
+/* Table */
+
+table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px var(--shadow);
+    border-radius: 10px;
+    overflow: hidden;
+    caption-side: bottom;
+}
+
+table th {
+    background-color: var(--primary-100);
+    padding: 10px;
+    border: 5px solid var(--primary-100);
+    color: white;
+    text-align: left;
+}
+
+table th, td {
+    padding: 12px 15px;
+}
+
+td {
+    max-width: 50%;
+}
+
+table tbody tr {
+    background-color: var(--bg-200);
+    border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #d6ebff;
+}
+
+
+/* Different Container Classes */
+
+.container {
+    position: relative;
+}
+
+.button-container {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.table-container-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: var(--margin-between-elements) var(--margin-sides) var(--margin-between-elements) var(--margin-sides);
+    box-shadow: 0 0 20px var(--shadow);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--bg-200);
+}
+
+.table-container {
+    box-shadow: 0 0 20px var(--shadow);
+    overflow-x: auto;
+    margin: 25px 0;
+}
+
+.table-container table {
+    width: 100%;
+}
+
+/* Error Popup */
+#popup {
+    font-family: "Swansea Regular", sans-serif;
+    position: fixed;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 999999;
+    animation: popup-anim 0.3s ease-in-out;
+}
+
+#close-btn {
+    float: right;
+    cursor: pointer;
+}
+
+/* Submit Button */
+
+#submit {
+    width: 100%;
+    background-color: var(--primary-100);
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+#submit:hover {
+    box-shadow: 0 0 12px 5px var(--primary-100);
+}
+
+/* Navbar */
+
+nav {
+    background-color: var(--primary-100);
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo a {
+    color: white; /* Change this to your desired text color */
+    font-size: clamp(1.25rem, 4vw, 2.5rem);
+    margin-left: 60px;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    margin-left: 20px; /* Adjust the spacing between items */
+}
+
+#logout-img {
+    width: clamp(1.25rem, 4vw, 2.5rem);
+    height: auto;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#logout-img:hover {
+    transform: scale(1.1);
+}
+
+
+mark {
+    background: linear-gradient(90deg, #FBF719 50%, rgba(251, 247, 25, 0) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 1.5s;
+    cursor: pointer;
+}
+
+mark:hover {
+    background-position: -100% 0;
+    animation: highlight 1.5s 1 forwards;
+}
+
+@keyframes highlight {
+    0% {
+        background-position: 100% 0;
+    }
+    30%, 70% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@keyframes popup-anim {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Portrait Orientation */
+
+@media screen and (orientation: portrait) {
+    .container {
+        margin-top: 5vh;
+    }
+}
+
+/* Landscape Orientation */
+
+@media screen and (max-width: 1000px) {
+    .table-container {
+        width: 90% !important;
+    }
+
+    .logo-container {
+        justify-content: left;
+    }
+
+    .logo a {
+        margin-left: 20px;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    .table-container-heading {
+        box-shadow: none;
+        width: 100%;
+        margin: var(--margin-between-elements) 0 var(--margin-between-elements) 0 !important;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .logo a {
+        margin-left: 0 !important;
+    }
+
+    #logout-img {
+        margin-right: 0 !important;
+    }
+}
+
+@media screen and (max-width: 230px) {
+    .logo a {
+        font-size: 1rem;
+    }
+
+    ul li {
+        margin-left: 0 !important;
+    }
+}

@@ -1,0 +1,6 @@
+/vertretungsplan-server/.idea
+/vertretungsplan-client/.idea
+
+/vertretungsplan-client/node_modules
+
+/vertretungsplan-server/target

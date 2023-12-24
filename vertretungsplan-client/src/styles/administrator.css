@@ -1,0 +1,150 @@
+/* Html, Body */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Poppins Regular", sans-serif;
+    user-select: none;
+    background: var(--bg-200);
+    margin-top: 12vh;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+/* Select */
+
+select {
+    width: 50% !important;
+}
+
+/* Different Container Classes */
+
+.substitution-plan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: var(--margin-between-elements) var(--margin-sides) var(--margin-between-elements) var(--margin-sides);
+    box-shadow: 0 0 20px var(--shadow);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.collapse-btn img {
+    cursor: pointer;
+    max-width: 25px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    float: left;
+    width: 30%;
+}
+
+.table-wrapper {
+    width: 70%;
+    float: right;
+    overflow-x: auto;
+    box-shadow: 0 0 20px var(--shadow);
+    max-height: 550px !important;
+    overflow-y: auto;
+}
+
+.delete {
+    width: 40px;
+    height: 40px;
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.delete:hover {
+    box-shadow: 0 0 10px 5px var(--danger);
+}
+
+.delete img {
+    width: 22px;
+}
+
+.substitution-plan {
+    width: 100%;
+}
+
+.table-container-timetable-entries > .table-container {
+    overflow-x: hidden !important;
+}
+
+.table-container-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+}
+
+.table-container-wrapper > .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: none !important;
+    width: 100% !important;
+    display: block;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.table-container-wrapper > .table-container > table {
+    width: 100%;
+    margin: 25px 0;
+    box-shadow: none !important;
+}
+
+/* Custom rules for Timetable Entries Table */
+
+#timetable-entries-body td {
+    cursor: pointer;
+}
+
+#submit {
+    width: 50% !important;
+    border-radius: 10px !important;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        margin-top: 0;
+    }
+
+    .substitution-plan-container {
+        box-shadow: none !important;
+        margin: var(--margin-between-elements) 0 var(--margin-between-elements) 0 !important;
+        width: 90vw !important;
+
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .table-wrapper {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .table-container-wrapper > .table-container {
+        width: 60vw !important;
+    }
+}

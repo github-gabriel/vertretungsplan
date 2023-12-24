@@ -16,15 +16,15 @@
 
 ## Table of Contents
 
-- [Table of Contents](#-table-of-contents)
-- [Overview](#-overview)
-- [Features](#-features)
-- [Modules](#-modules)
-- [Repository Structure](#-repository-structure)
-- [Getting Started](#-getting-started)
-  - [Installation](#-installation)
-  - [Run the Client](#-running-the-client)
-- [Roadmap](#-roadmap)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Features](#features)
+- [Modules](#modules)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Run the Client](#running-the-client)
+- [Roadmap](#roadmap)
 
 ## Overview
 

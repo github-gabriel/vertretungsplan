@@ -18,21 +18,21 @@
 
 ## Table of Contents
 
-- [Table of Contents](#-table-of-contents)
-- [Overview](#-overview)
-- [Features](#-features)
-- [Modules](#-modules)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Features](#features)
+- [Modules](#modules)
   - [Application Properties](#applicationproperties)
   - [Application Test Properties](#application-testproperties)
-- [Repository Structure](#-repository-structure)
-- [Getting Started](#-getting-started)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
   - [Requirements](#requirements)
-  - [Installation](#-installation)
-  - [Run the Server](#-running-the-server)
-  - [Tests](#-tests)
+  - [Installation](#installation)
+  - [Run the Server](#running-the-server)
+  - [Tests](#tests)
   - [Postman](#postman)
 - [Creating custom entities](#creating-custom-entities)
-- [Roadmap](#-roadmap)
+- [Roadmap](#roadmap)
 
 ## Overview
 

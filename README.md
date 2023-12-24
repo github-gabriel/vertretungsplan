@@ -6,16 +6,16 @@
     <div align="center">
         <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E">
         <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge& logo=html5&logoColor=white">
-        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&   logoColor=white">
+        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
         <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
         <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white">
         <img src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot">
         <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white">
-        <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&  logo=JSON%20web%20tokens&logoColor=white">
+        <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white">
         <img src="https://img.shields.io/badge/Junit5-25A162?style=for-the-badge&logo=junit5&logoColor=white">
-        <img src="https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&  logo=Spring-Security&logoColor=white">
+        <img src="https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=Spring-Security&logoColor=white">
         <img src="https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white">
-        <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&  logo=openjdk&logoColor=white">
+        <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white">
     </div>
 </p>
 Introducing a comprehensive substitution plan application featuring a Spring Boot Backend and a Vite-built Vanilla JS/HTML/CSS Frontend. The primary goal of this application is to address the issues commonly associated with slow substitution plan apps. It achieves this by employing an algorithm that automatically generates entries based on relevant data.
